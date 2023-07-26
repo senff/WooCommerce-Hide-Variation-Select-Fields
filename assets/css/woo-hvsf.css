@@ -1,5 +1,5 @@
-table.variations .variation-hide th,
-table.variations .variation-hide td{
-	filter: blur(2px);
-	pointer-events: none;
-}
+table.variations .variation-hide *{
+	cursor: not-allowed;
+	filter: blur(1px);
+	opacity: 0.7;	
+	}

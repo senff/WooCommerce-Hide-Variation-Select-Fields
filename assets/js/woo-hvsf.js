@@ -23,15 +23,8 @@
 		$('table.variations tr select').change(function () {
 			analyzeFields();
 		 });
+
 	});
-
-
-	function checkFields() {
-		$('table.variations tr').each(function(){
-
-		})
-	}
-
 
 	// Hide all fields, starting with (b), regardless of any settings or defaults
 	function hideFields(b) {
@@ -39,9 +32,12 @@
 			var variationSelectCount = $(this).attr('variation-select');
 			if (variationSelectCount >= b) {
 				$(this).addClass('variation-hide');
+				$(this).find('select').prop('disabled', true);
+
 				// $(this).find("option:first").prop("selected", true);
 			} else {
 				$(this).removeClass('variation-hide');
+				$(this).find('select').prop('disabled', false);
 			}
 		});
 	}
@@ -63,6 +59,7 @@
 		     } else {
 		     	// Make next select box visible
 		     	$('table.variations tr[variation-select='+nextOne+']').removeClass('variation-hide');
+		     	$('table.variations tr[variation-select='+nextOne+']').find('select').prop('disabled', false);
 		     }
 		});
 
